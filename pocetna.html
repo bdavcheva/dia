@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Invest MK</title>
+    <link rel="stylesheet" href="pocetna.css">
+</head>
+<body>
+<nav class="navbar">
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#calendar">Calendar</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="javascript:void(0);" onclick="showMapSection()">Map</a></li> <!-- Овде пренасочуваме на Map секцијата -->
+        <li><a href="#services">Services</a></li>
+        <li><a href="#profile">Profile</a></li>
+        <li><a href="#login" class="login-btn">Log in</a></li>
+        <li><a href="#signup" class="signup-btn">Sign Up</a></li>
+    </ul>
+</nav>
+
+<!-- Копче Почетна -->
+<button id="back-to-top">Home</button>
+
+<!-- Почетна секција -->
+<section id="home" class="fullscreen-background"></section>
+
+
+<!-- Секција со календар -->
+<section id="calendar" class="calendar-section">
+    <div class="calendar-container">
+        <div class="calendar-header">
+            <button id="prev-month">&lt;</button>
+            <h2 id="month-year"></h2>
+            <button id="next-month">&gt;</button>
+        </div>
+        <div class="calendar-days">
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+            <div>Sun</div>
+        </div>
+        <div class="calendar-dates" id="calendar-dates"></div>
+    </div>
+</section>
+
+
+<!-- Други секции -->
+<section id="about">
+    <h1>About Us</h1>
+    <p>Learn more about us.</p>
+</section>
+
+<section id="services">
+    <h1>Our Services</h1>
+    <p>Explore our offerings.</p>
+</section>
+
+<!-- Профил секција -->
+<section id="profile" class="profile-section">
+    <h1>Your Profile</h1>
+    <img src="Images-dom.2/profilna.png" alt="Profile Picture" class="profile-image">
+
+    <form>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="b.davcheva" disabled>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" placeholder="blagica.davcheva@students.finki.ukim.mk" disabled>
+
+        <label for="faq">FAQ:</label>
+        <textarea id="faq" name="faq" placeholder="List your frequently asked questions here..." disabled>
+            1. What are the main functions of the stock exchange?
+            2. How does stock exchange trading work?
+            3. Who can invest on the Macedonian stock exchange?
+            4. How are investors' rights protected?
+            5. Are there simulators for beginners to practice trading?
+            6. Do I need a broker to trade?
+        </textarea>
+
+        <button type="submit">Update Profile</button>
+    </form>
+</section>
+
+<!-- Log In секција -->
+<section id="login">
+    <h1>Log In</h1>
+    <p>Sign in to your account</p>
+    <form>
+        <label for="username">E-mail</label><br>
+        <input type="text" id="username" name="username" placeholder="Enter your email..." required><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" placeholder="Enter your password..." required><br>
+        <button type="submit">Log In</button>
+    </form>
+</section>
+
+<!-- Sign Up секција -->
+<section id="signup">
+    <h1>Sign Up</h1>
+    <p>Create New Account</p>
+    <form>
+        <label for="new-username">Name and Surname</label><br>
+        <input type="text" id="new-username" name="new-username" placeholder="Enter your Name and Surname..." required><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" placeholder="Enter your email..." required><br>
+        <label for="new-password">Password:</label><br>
+        <input type="password" id="new-password" name="new-password" placeholder="Enter your password..." required><br>
+        <button type="submit">Sign Up</button>
+    </form>
+</section>
+
+
+<!-- Мапа и форма за пребарување -->
+<section id="map-section" class="map-container">
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Search location..." />
+        <button onclick="searchLocation()">Search</button>
+    </div>
+    <div id="map"></div>
+</section>
+
+
+<section>
+    <button class="logo-button">Invest MK</button>
+</section>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async defer></script>
+<script src="map.js"></script>
+<script src="calendar.js"></script>
+</body>
+</html>
