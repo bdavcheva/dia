@@ -1,24 +1,19 @@
-function showMapSection() {
-    document.getElementById("map-section").style.display = "block"; // Прикажи го делот за мапа
-}
+document.getElementById('searchBtn').addEventListener('click', function() {
+    let query = document.getElementById('searchInput').value;
+    if (query) {
+        alert("Searching for: " + query);
+        // Add your map API functionality here (e.g., Google Maps or Leaflet)
+    }
+});
 
-function initMap() {
-    var alkaloidLocation = { lat: 42.0008246, lng: 21.4667181 }; // Локација на Alkaloid
+// Иницијација на мапата
+var map = L.map('map').setView([41.9981, 21.4254], 13); // Почетна локација: Скопје
 
-    var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 12,
-        center: alkaloidLocation
-    });
+// Додавање на мапски слој од OpenStreetMap
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
 
-    var marker = new google.maps.Marker({
-        position: alkaloidLocation,
-        map: map,
-        title: 'Alkaloid JV Skopje'
-    });
-}
-
-function searchLocation() {
-    var location = document.getElementById("search").value;
-    alert("Searching for location: " + location);
-    // Овде можете да додадете код за динамично пребарување на локации користејќи Google Places API
-}
+// Додавање на маркер
+var marker = L.marker([41.9981, 21.4254]).addTo(map); // Маркер на Скопје
+marker.bindPopup("<b>Скопје</b>").openPopup();
